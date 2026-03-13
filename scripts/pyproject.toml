@@ -1,0 +1,12 @@
+[project]
+name = "scripts"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "pygithub>=2.8.1",
+    "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
+    "toml>=0.10.2",
+]
