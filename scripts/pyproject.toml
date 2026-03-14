@@ -7,6 +7,10 @@ requires-python = ">=3.14"
 dependencies = [
     "pygithub>=2.8.1",
     "python-dotenv>=1.2.2",
+    "pytoml>=0.1.21",
     "pyyaml>=6.0.3",
+    "questionary>=2.1.1",
+    "semver>=3.0.4",
     "toml>=0.10.2",
+    "tomlkit>=0.14.0",
 ]
