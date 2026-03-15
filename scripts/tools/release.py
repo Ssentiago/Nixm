@@ -78,7 +78,9 @@ def build_and_create_release(previous_version: str, new_version: str, changelog:
 
     backend_bin_folder = backend_folder / "target/release/"
     binary_name = get_binary_name()
-    backend_binary = backend_bin_folder / binary_name
+    backend_binary = (
+        backend_folder / "target/x86_64-unknown-linux-gnu/release/" / binary_name
+    )
 
     temp_folder = ROOT / "temp_release"
 
@@ -97,7 +99,11 @@ def build_and_create_release(previous_version: str, new_version: str, changelog:
         )
 
         os.chdir(backend_folder)
-        subprocess.run(["cargo", "build", "--release"], check=True)
+        subprocess.run(
+            "cross build --release --target x86_64-unknown-linux-gnu --no-default-features",
+            check=True,
+            shell=True,
+        )
         shutil.copy(backend_binary, temp_folder / binary_name)
     except Exception as e:
         shutil.rmtree(temp_folder)
